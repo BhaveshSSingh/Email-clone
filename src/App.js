@@ -1,29 +1,27 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import EmailBody from "./components/EmailBody";
 import EmailList from "./components/EmailList";
 
 const App = () => {
-  const flex = () => {
-    return "flex";
-  };
-
-  // figure out a way to add flex to styles onClick of the emailList or the tags do it inside
   return (
-    <div
-      className={`bg-backGroundClr  text-textClr  p-8 h-full px-10 
-   flex`}
-    >
+    <div className="bg-backGroundClr  text-textClr  p-8 h-full px-10 ">
+      <span>
+        <p className="pr-4 inline-block">Filter By:</p>
+        <button type="button" className="p-1  rounded-full hover w-[70px]">
+          Unread
+        </button>
+        <button
+          type="button"
+          className="p-1 rounded-full bg-filterButton w-[70px] border border-borderClr mx-3"
+        >
+          Read
+        </button>
+        <button type="button" className="p-1 rounded-full w-[70px]">
+          Favorites
+        </button>
+      </span>
       <EmailList />
-      <Outlet />
-      {/* show nothing in the start when clicked? show emailbody */}
-
-      {/* <EmailBody /> */}
+      {/* <Outlet /> */}
     </div>
   );
 };
 
 export default App;
-
-// layout with just buttons
-// then list inside and there have them in flex

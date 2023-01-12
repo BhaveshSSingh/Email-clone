@@ -1,45 +1,31 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { getEmailList } from "../api/fetchData";
 import EmailTab from "./EmailTab";
 
 const EmailList = () => {
-  return (
-    <div>
-      <span>
-        <p className="pr-4 inline-block">Filter By:</p>
-        <button type="button" className="p-1  rounded-full hover w-[70px]">
-          Unread
-        </button>
-        <button
-          type="button"
-          className="p-1 rounded-full bg-filterButton w-[70px] border border-borderClr mx-3"
-        >
-          Read
-        </button>
-        <button type="button" className="p-1 rounded-full w-[70px]">
-          Favorites
-        </button>
-      </span>
+  const [emailList, setEmailList] = useState([]);
 
+  useEffect(() => {
+    getEmailList(setEmailList);
+  }, []);
+
+  const [splitScreen, setSplitScreen] = useState("");
+  const addFlex = () => {
+    setSplitScreen("flex");
+  };
+
+  return (
+    <div className={`${splitScreen}`}>
       <Link to="/email:id">
-        <div>
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
-          <EmailTab />
+        <div onClick={addFlex}>
+          {emailList.map((email) => (
+            <EmailTab email={email} key={email.id} />
+          ))}
         </div>
       </Link>
+
+      <Outlet />
     </div>
   );
 };
