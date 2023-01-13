@@ -7,3 +7,9 @@
 body {
   font-family: "Nunito", sans-serif;
 }
+.line__clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

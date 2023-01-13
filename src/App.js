@@ -19,7 +19,6 @@ const App = () => {
         </button>
       </span>
       <EmailList />
-      {/* <Outlet /> */}
     </div>
   );
 };
