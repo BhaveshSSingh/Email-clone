@@ -1,24 +1,48 @@
-import { data } from "autoprefixer";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getEmailBody } from "../api/fetchData";
+import { addToFavEmails } from "../app/emailSlice";
 
 const EmailBody = () => {
   const [emailBody, setEmailBody] = useState("");
+  const [subjectData, updateSubjectData] = useState("");
 
   useEffect(() => {
-    getEmailBody();
+    getEmailBody(setEmailBody);
   }, []);
 
-  const getEmailBody = async () => {
+  // const getEmailBody = async (setEmailBody, id) => {
+  //   const data = await fetch(
+  //     `https://flipkart-email-mock.vercel.app/?id=${id}`
+  //   ).then((res) => res.json());
+  //   setEmailBody(data.body);
+  //   console.log(data);
+  // };
+
+  const getEmailBody = async (setEmailBody, id) => {
     const data = await fetch(
-      "https://flipkart-email-mock.vercel.app/?id=5"
+      `https://flipkart-email-mock.vercel.app/?id=${1}`
     ).then((res) => res.json());
+
+    const subjectData = await fetch(
+      " https://flipkart-email-mock.now.sh/"
+    ).then((res) => res.json());
+
+    updateSubjectData(subjectData); //subject, name and date
     setEmailBody(data.body);
-    console.log(data);
+    // console.log(data);
+    // console.log(subjectData);
   };
+
+  // Adding to fav redux logic
+  // const dispatch = useDispatch();
+  // const FavBtnHandler = (emailBody) => {
+  //   dispatch(addToFavEmails(emailBody));
+  // };
 
   return (
     <>
-      <div className=" h-fit rounded-lg border border-borderClr pr-9  pt-6 mt-4 bg-white ml-6 flex ">
+      <div className=" h-fit rounded-lg border border-borderClr pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%]">
         {/* body img */}
         <div className="pr-6 pl-9 text-backGroundClr">
           <div className="w-16 h-16 object-fill rounded-full  bg-accentClr p-[15px] flex  justify-center">
@@ -34,6 +58,7 @@ const EmailBody = () => {
             <button
               type="button"
               className="rounded-full h-[35px] bg-accentClr w-[150px]   text-readBackgound"
+              onClick={"FavBtnHandler"}
             >
               Mark as favorite
             </button>

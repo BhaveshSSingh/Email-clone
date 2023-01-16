@@ -4,12 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Nunito", sans-serif;
-}
 .line__clamp {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+
+.active_tab {
+  background-color: #e1e4ea;
+  border: 1px solid #cfd2dc;
+  color: #636363;
 }

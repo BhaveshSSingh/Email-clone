@@ -12,6 +12,9 @@ module.exports = {
       filterButton: "#e1e4ea",
       readBackgound: "#F2F2F2",
     },
+    fontFamily: {
+      sans: ["Nunito", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],

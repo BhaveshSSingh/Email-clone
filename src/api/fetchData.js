@@ -3,6 +3,7 @@ export const getEmailList = async (setEmailList) => {
     res.json()
   );
   setEmailList(data.list);
+  console.log();
 };
 
 // export const getEmailBody = async () => {
@@ -11,3 +12,11 @@ export const getEmailList = async (setEmailList) => {
 //     );
 //     setEmailList(data.list);
 // }
+
+export const getEmailBody = async (setEmailBody, id) => {
+  const data = await fetch(
+    `https://flipkart-email-mock.vercel.app/?id=${id}`
+  ).then((res) => res.json());
+  setEmailBody(data.body);
+  console.log(data);
+};
