@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getEmailBody } from "../api/fetchData";
-import { addToFavEmails } from "../app/emailSlice";
+// import { getEmailBody } from "../api/fetchData";
+import { addToFavEmails } from "../app/features/favEmailSlice";
 
 const EmailBody = () => {
   const [emailBody, setEmailBody] = useState("");
@@ -20,7 +20,7 @@ const EmailBody = () => {
   const dispatch = useDispatch();
 
   const favBtnHandler = (emailBody) => {
-    dispatch(addToFavEmails(emailBody));
+    // dispatch(addToFavEmails(emailBody));
   };
 
   return (
