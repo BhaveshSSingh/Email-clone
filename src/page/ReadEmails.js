@@ -21,6 +21,7 @@ const ReadEmails = () => {
     <div className={`${splitScreen}`}>
       <Link to="/email:id">
         {removeDupe(readEmails).map((email) => (
+          // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
           <div onClick={emailClickHandler}>
             <EmailTab email={email} key={email.id} />
           </div>

@@ -5,40 +5,23 @@ import { addToFavEmails } from "../app/emailSlice";
 
 const EmailBody = () => {
   const [emailBody, setEmailBody] = useState("");
-  const [subjectData, updateSubjectData] = useState("");
 
   useEffect(() => {
     getEmailBody(setEmailBody);
   }, []);
 
-  // const getEmailBody = async (setEmailBody, id) => {
-  //   const data = await fetch(
-  //     `https://flipkart-email-mock.vercel.app/?id=${id}`
-  //   ).then((res) => res.json());
-  //   setEmailBody(data.body);
-  //   console.log(data);
-  // };
-
   const getEmailBody = async (setEmailBody, id) => {
     const data = await fetch(
       `https://flipkart-email-mock.vercel.app/?id=${1}`
     ).then((res) => res.json());
-
-    const subjectData = await fetch(
-      " https://flipkart-email-mock.now.sh/"
-    ).then((res) => res.json());
-
-    updateSubjectData(subjectData); //subject, name and date
     setEmailBody(data.body);
-    // console.log(data);
-    // console.log(subjectData);
   };
 
-  // Adding to fav redux logic
-  // const dispatch = useDispatch();
-  // const FavBtnHandler = (emailBody) => {
-  //   dispatch(addToFavEmails(emailBody));
-  // };
+  const dispatch = useDispatch();
+
+  const favBtnHandler = (emailBody) => {
+    dispatch(addToFavEmails(emailBody));
+  };
 
   return (
     <>
@@ -58,7 +41,7 @@ const EmailBody = () => {
             <button
               type="button"
               className="rounded-full h-[35px] bg-accentClr w-[150px]   text-readBackgound"
-              onClick={"FavBtnHandler"}
+              onClick={favBtnHandler}
             >
               Mark as favorite
             </button>

@@ -5,7 +5,6 @@ const initialState = {
   readEmail: [],
   unReadEmail: [],
   favEmail: [],
-  //
   loading: false,
   error: "",
 };
@@ -20,11 +19,14 @@ const emailSlice = createSlice({
     addToReadEmails: (state, action) => {
       state.readEmail.push(action.payload);
     },
-    // unReadEmails:(){
-
-    // }
+    //     unReadEmails:(state,action)=>{
+    //  unread = allEmail - readEmail
+    /*
+    if email.id not in readEmail then push it in unread Email
+    */
+    //     },
     addToFavEmails(state, action) {
-      state.push(action.payload);
+      state.favEmail.push(action.payload);
     },
   },
 });
