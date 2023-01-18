@@ -6,6 +6,8 @@ const EMAIL_URL = " https://flipkart-email-mock.now.sh/";
 const initialState = {
   loading: false,
   listOfEmails: [],
+  unReadEmails: [],
+  readEmails: [],
   error: "",
 };
 
@@ -20,14 +22,33 @@ export const fetchAllEmails = createAsyncThunk(
 const emailSlice = createSlice({
   name: "email",
   initialState,
-  reducers: {},
+  reducers: {
+    addToReadEmails: (state, action) => {
+      const exist = state.readEmails.find(
+        (email) => email.id === action.payload.id
+      );
+      if (!exist) {
+        state.readEmails.push(action.payload);
+      }
+      console.log(`${state.readEmails.length}readEmails`);
+    },
+    addToUnReadEmails: (state, action) => {
+      const newUn = state.unReadEmails.filter(
+        (email) => email.id !== action.payload.id
+      );
+      state.unReadEmails = newUn;
+
+      console.log(state.unReadEmails.length);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllEmails.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchAllEmails.fulfilled, (state, action) => {
       state.loading = false;
-      state.listOfEmails = action.payload;
+      state.listOfEmails = action.payload.data?.list;
+      state.unReadEmails = action.payload.data?.list;
       state.error = "";
     });
     builder.addCase(fetchAllEmails.rejected, (state, action) => {
@@ -37,5 +58,7 @@ const emailSlice = createSlice({
     });
   },
 });
+
+export const { addToUnReadEmails, addToReadEmails } = emailSlice.actions;
 
 export default emailSlice.reducer;

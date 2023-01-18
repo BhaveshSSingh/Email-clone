@@ -9,28 +9,16 @@ const ReadEmails = () => {
   const emailClickHandler = () => {
     setSplitScreen("flex");
   };
-  const readEmails = useSelector((store) => store.readEmail);
-
-  // const removeDupe = (readEmails) => {
-  //   return readEmails.filter(
-  //     (item, index) => readEmails.indexOf(item) === index
-  //   );
-  // };
+  const readEmails = useSelector((store) => store.email.readEmails);
 
   return (
     <div className={`${splitScreen}`}>
       <Link to="/email:id">
         {readEmails.map((email) => (
-          // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
           <div onClick={emailClickHandler}>
-            <EmailTab email={email} key={email.id} />
+            <EmailTab email={email} key={readEmails.id} />
           </div>
         ))}
-        {/* {readEmails.map((email) => (
-          <div onClick={emailClickHandler}>
-            <EmailTab email={email} key={email.id} />
-          </div>
-        ))} */}
       </Link>
 
       <Outlet />
