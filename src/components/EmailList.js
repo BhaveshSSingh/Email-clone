@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
-import { fetchAllEmails } from "../app/features/emailSlice";
+import {
+  fetchAllEmails,
+  fetchEmailBody,
+  saveClickedEmail,
+} from "../app/features/emailSlice";
 import { addToUnReadEmails } from "../app/features/emailSlice";
 import { addToReadEmails } from "../app/features/emailSlice";
 import EmailTab from "./EmailTab";
+import EmailBody from "./EmailBody";
 
 const EmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
+  const [hidden, setHidden] = useState("hidden");
 
   const allEmails = useSelector((state) => state.email.listOfEmails);
 
@@ -19,24 +24,31 @@ const EmailList = () => {
 
   const emailClickHandler = (email) => {
     setSplitScreen("flex");
+    setHidden("");
 
     dispatch(addToReadEmails(email));
     dispatch(addToUnReadEmails(email));
+    dispatch(fetchEmailBody(email.id));
+    dispatch(saveClickedEmail(email));
   };
 
   return (
     <>
       <div className={`${splitScreen}`}>
-        <Link to="/email:id">
+        <div>
           {allEmails.map((email) => (
             // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
             <div onClick={() => emailClickHandler(email)}>
               <EmailTab email={email} key={email.id} />
             </div>
           ))}
-        </Link>
+        </div>
 
-        <Outlet />
+        <div
+          className={`h-fit rounded-lg border border-borderClr pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
+        >
+          <EmailBody />
+        </div>
       </div>
     </>
   );

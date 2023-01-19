@@ -1,4 +1,3 @@
-import EmailList from "./components/EmailList";
 import Tabs from "./components/Tabs";
 
 const App = () => {
@@ -11,7 +10,6 @@ const App = () => {
         <p className="pr-4 inline-block">Filter By:</p>
         <Tabs />
       </span>
-      {/* <EmailList /> */}
     </div>
   );
 };

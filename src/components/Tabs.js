@@ -1,17 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import FavEmails from "../page/FavEmails";
 import ReadEmails from "../page/ReadEmails";
 import UnreadEmails from "../page/UnreadEmails";
 import EmailList from "./EmailList";
 
 const Tabs = () => {
-  const [toggleTab, setToggleTab] = useState("All"); //make sure to persist this data  later
-
-  const navigateToHome = useNavigate();
+  const [toggleTab, setToggleTab] = useState("All");
 
   const selectTab = (content) => {
     setToggleTab(content);
-    navigateToHome("/");
   };
 
   return (
@@ -81,7 +78,7 @@ const Tabs = () => {
               toggleTab === "favorites tab" ? "block min-h-screen" : "hidden"
             }
           >
-            EmailList with fav
+            <FavEmails />
           </div>
         </>
       }
