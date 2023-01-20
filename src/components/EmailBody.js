@@ -1,17 +1,14 @@
-import { useEffect } from "react";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavEmails } from "../app/features/emailSlice";
 
 const EmailBody = () => {
-  useEffect(() => {}, []);
   const dispatch = useDispatch();
 
   const emailbody = useSelector((store) => store.email.emailBody);
   const clickedEmailInfo = useSelector((store) => store.email.clickedEmail);
 
   const date = clickedEmailInfo?.date;
-  console.log(date);
 
   const favBtnHandler = (clickedEmailInfo) => {
     dispatch(addToFavEmails(clickedEmailInfo));
@@ -41,7 +38,7 @@ const EmailBody = () => {
         </div>
 
         <span className="py-4">
-          <Moment format="DD/MM/yyyy hh:mm">{date}</Moment>
+          <Moment format="DD/MM/yyyy hh:mma">{date}</Moment>
         </span>
         <div className="pb-16">
           {emailbody?.data?.body?.replace(/[<div></div><p></p>]/g, "")}

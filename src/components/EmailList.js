@@ -14,11 +14,10 @@ const EmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
   const [hidden, setHidden] = useState("hidden");
 
-  const allEmails = useSelector((state) => state.email.listOfEmails);
-
   useEffect(() => {
     dispatch(fetchAllEmails());
   }, []);
+  const allEmails = useSelector((state) => state.email.listOfEmails);
 
   const dispatch = useDispatch();
 
@@ -37,7 +36,6 @@ const EmailList = () => {
       <div className={`${splitScreen}`}>
         <div>
           {allEmails.map((email) => (
-            // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
             <div onClick={() => emailClickHandler(email)}>
               <EmailTab email={email} key={email.id} />
             </div>

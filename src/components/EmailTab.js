@@ -2,7 +2,6 @@ import Moment from "react-moment";
 
 const EmailTab = ({ email }) => {
   const { subject, short_description, date } = email;
-
   return (
     <>
       <div className="border  border-borderClr hover:border-accentClr hover:bg-accentClr hover:bg-opacity-5  min-h-32 pb-2 pt-3 my-4  flex rounded-lg cursor-pointer">
@@ -23,9 +22,9 @@ const EmailTab = ({ email }) => {
           <p className=" line__clamp">{short_description}</p>
           <div className="pt-2">
             <span className="pr-7">
-              <Moment format="DD/MM/yyyy hh:mm">{date}</Moment>
+              <Moment format="DD/MM/yyyy hh:mma">{date}</Moment>
             </span>{" "}
-            <span className="text-accentClr">Favorite</span>
+            <span className="text-accentClr">{}</span>
           </div>
         </div>
       </div>
