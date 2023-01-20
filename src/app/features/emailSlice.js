@@ -50,10 +50,10 @@ const emailSlice = createSlice({
       state.unReadEmails = newUn;
     },
     addToFavEmails: (state, action) => {
-      // add a check or duplicates like readEmails
-      const newFav = state.clickedEmail;
-      state.favEmails.push(newFav);
+      const fav = state.clickedEmail;
+      state.favEmails.push(fav);
     },
+
     saveClickedEmail: (state, action) => {
       state.clickedEmail = action.payload;
     },
