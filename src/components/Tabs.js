@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import FavEmails from "../page/FavEmails";
 import ReadEmails from "../page/ReadEmails";
 import UnreadEmails from "../page/UnreadEmails";
@@ -6,6 +7,15 @@ import EmailList from "./EmailList";
 
 const Tabs = () => {
   const [toggleTab, setToggleTab] = useState("All");
+
+  const allEmailLength = useSelector(
+    (store) => store.email.listOfEmails.length
+  );
+  const unReadEmailLength = useSelector(
+    (store) => store.email.unReadEmails.length
+  );
+  const readEmailLength = useSelector((store) => store.email.readEmails.length);
+  const favEmailLength = useSelector((store) => store.email.favEmails.length);
 
   const selectTab = (content) => {
     setToggleTab(content);
@@ -20,7 +30,7 @@ const Tabs = () => {
         }`}
         onClick={() => selectTab("All")}
       >
-        All
+        All {allEmailLength}
       </button>
       <button
         type="button"
@@ -29,7 +39,7 @@ const Tabs = () => {
         }`}
         onClick={() => selectTab("unread tab")}
       >
-        Unread
+        Unread {unReadEmailLength === 0 ? "" : unReadEmailLength}
       </button>
       <button
         type="button"
@@ -38,7 +48,7 @@ const Tabs = () => {
         }`}
         onClick={() => selectTab("read tab")}
       >
-        Read
+        Read {readEmailLength === 0 ? "" : readEmailLength}
       </button>
       <button
         type="button"
@@ -47,7 +57,7 @@ const Tabs = () => {
         }`}
         onClick={() => selectTab("favorites tab")}
       >
-        Favorites
+        Favorites {favEmailLength === 0 ? "" : favEmailLength}
       </button>
       {
         <>

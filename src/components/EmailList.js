@@ -9,6 +9,7 @@ import { addToUnReadEmails } from "../app/features/emailSlice";
 import { addToReadEmails } from "../app/features/emailSlice";
 import EmailTab from "./EmailTab";
 import EmailBody from "./EmailBody";
+import Shimmer from "./loading/Shimmer";
 
 const EmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
@@ -35,15 +36,21 @@ const EmailList = () => {
     <>
       <div className={`${splitScreen}`}>
         <div>
-          {allEmails.map((email) => (
-            <div onClick={() => emailClickHandler(email)}>
-              <EmailTab email={email} key={email.id} />
+          {allEmails.length === 0 ? (
+            <div className="pt-3">
+              <Shimmer />
             </div>
-          ))}
+          ) : (
+            allEmails.map((email) => (
+              <div onClick={() => emailClickHandler(email)} key={email.id}>
+                <EmailTab email={email} />
+              </div>
+            ))
+          )}
         </div>
 
         <div
-          className={`h-fit rounded-lg border border-borderClr pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
+          className={`h-fit rounded-lg border border-gray-400 pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
         >
           <EmailBody />
         </div>

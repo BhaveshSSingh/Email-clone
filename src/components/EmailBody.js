@@ -1,6 +1,7 @@
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavEmails } from "../app/features/emailSlice";
+import Shimmerbody from "./loading/Shimmerbody";
 
 const EmailBody = () => {
   const dispatch = useDispatch();
@@ -16,8 +17,8 @@ const EmailBody = () => {
 
   return (
     <>
-      <div className="pr-6 pl-9 text-backGroundClr">
-        <div className="w-16 h-16 object-fill rounded-full  bg-accentClr p-[15px] flex  justify-center">
+      <div className="pr-6 pl-9 text-gray-100">
+        <div className="w-16 h-16 object-fill rounded-full  bg-pink-500 p-[15px] flex  justify-center">
           <div className="text-2xl">
             {clickedEmailInfo?.from?.name.substring(0, 1)}
           </div>
@@ -25,12 +26,12 @@ const EmailBody = () => {
       </div>
       <div className="flex flex-col pt-3">
         <div className="flex justify-between">
-          <div className="pr-1 font-bold text-3xl text-textClr">
+          <div className="pr-1 font-bold text-3xl text-black">
             {clickedEmailInfo?.subject}
           </div>
           <button
             type="button"
-            className="rounded-full h-[35px] bg-accentClr w-[150px]   text-readBackgound"
+            className="rounded-full h-[35px] bg-pink-500 w-[150px] text-gray-200"
             onClick={() => favBtnHandler()}
           >
             Mark as favorite
@@ -41,7 +42,11 @@ const EmailBody = () => {
           <Moment format="DD/MM/yyyy hh:mma">{date}</Moment>
         </span>
         <div className="pb-16">
-          {emailbody?.data?.body?.replace(/[<div></div><p></p>]/g, "")}
+          {!emailbody?.data?.body ? (
+            <Shimmerbody />
+          ) : (
+            emailbody?.data?.body?.replace(/[<div></div><p></p>]/g, "")
+          )}
         </div>
       </div>
     </>

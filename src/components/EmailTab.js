@@ -1,12 +1,13 @@
 import Moment from "react-moment";
 
 const EmailTab = ({ email }) => {
+  // console.log(email.id);
   const { subject, short_description, date } = email;
   return (
     <>
-      <div className="border  border-borderClr hover:border-accentClr hover:bg-accentClr hover:bg-opacity-5  min-h-32 pb-2 pt-3 my-4  flex rounded-lg cursor-pointer">
-        <div className="pr-6 pl-6  text-backGroundClr">
-          <div className="w-16 h-16 object-fill rounded-full  bg-accentClr p-[15px] flex  justify-center">
+      <div className="border  border-gray-400 hover:border-pink-500 hover:bg-pink-500 hover:bg-opacity-5  min-h-32 pb-2 pt-3 my-4  flex rounded-lg cursor-pointer">
+        <div className="pr-6 pl-6  text-gray-100">
+          <div className="w-16 h-16 object-fill rounded-full  bg-pink-500 p-[15px] flex  justify-center">
             <div className="text-2xl">{email?.from?.name?.substring(0, 1)}</div>
           </div>
         </div>
@@ -24,7 +25,7 @@ const EmailTab = ({ email }) => {
             <span className="pr-7">
               <Moment format="DD/MM/yyyy hh:mma">{date}</Moment>
             </span>{" "}
-            <span className="text-accentClr">{}</span>
+            <span className="text-pink-500">{}</span>
           </div>
         </div>
       </div>
