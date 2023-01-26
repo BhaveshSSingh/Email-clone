@@ -31,7 +31,7 @@ const UnreadEmails = () => {
     <div className={`${splitScreen}`}>
       <div to="/email:id">
         {unReadEmailList.length === 0 ? (
-          <div>No More Emails</div>
+          <div className="">No More Emails</div>
         ) : (
           unReadEmailList.map((email) => (
             <div onClick={() => emailClickHandler(email)} key={email.id}>
@@ -44,7 +44,7 @@ const UnreadEmails = () => {
         className={`h-fit rounded-lg border border-gray-400 pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
       >
         <EmailBody />
-      </div>{" "}
+      </div>
     </div>
   );
 };

@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import FavEmails from "../page/FavEmails";
 import ReadEmails from "../page/ReadEmails";
 import UnreadEmails from "../page/UnreadEmails";
-import EmailList from "./EmailList";
+import AllEmailList from "./AllEmailList";
+import EmailList from "./AllEmailList";
 
 const Tabs = () => {
   const [toggleTab, setToggleTab] = useState("All");
@@ -64,7 +65,7 @@ const Tabs = () => {
           <div
             className={toggleTab === "All" ? "block min-h-screen" : "hidden"}
           >
-            <EmailList />
+            <AllEmailList />
           </div>
 
           <div

@@ -11,7 +11,7 @@ import EmailTab from "./EmailTab";
 import EmailBody from "./EmailBody";
 import Shimmer from "./loading/Shimmer";
 
-const EmailList = () => {
+const AllEmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
   const [hidden, setHidden] = useState("hidden");
 
@@ -59,4 +59,4 @@ const EmailList = () => {
   );
 };
 
-export default EmailList;
+export default AllEmailList;

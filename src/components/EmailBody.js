@@ -18,7 +18,7 @@ const EmailBody = () => {
   return (
     <>
       <div className="pr-6 pl-9 text-gray-100">
-        <div className="w-16 h-16 object-fill rounded-full  bg-pink-500 p-[15px] flex  justify-center">
+        <div className="w-16 h-16 object-fill rounded-full  bg-purple-500 p-[15px] flex  justify-center">
           <div className="text-2xl">
             {clickedEmailInfo?.from?.name.substring(0, 1)}
           </div>
@@ -31,7 +31,7 @@ const EmailBody = () => {
           </div>
           <button
             type="button"
-            className="rounded-full h-[35px] bg-pink-500 w-[150px] text-gray-200"
+            className="rounded-full h-[35px] bg-purple-500 w-[150px] text-gray-200"
             onClick={() => favBtnHandler()}
           >
             Mark as favorite
