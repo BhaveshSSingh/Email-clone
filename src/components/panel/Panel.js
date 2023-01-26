@@ -17,26 +17,30 @@ const Panel = () => {
               <BsFillPencilFill className="mr-2" /> Compose
             </div>
           </button>
-          <li className="px-4 flex  justify-start items-center py-2 hover:bg-purple-700 hover:text-white cursor-pointer                   rounded-xl">
-            <Link to="inbox">
+          <Link to="inbox">
+            <li className="px-4 flex  justify-start items-center py-2 hover:bg-purple-700 hover:text-white cursor-pointer                   rounded-xl">
               <div className="px-2">
                 <CiInboxIn color="" className="left-0" />
               </div>
               Inbox
-            </Link>
-          </li>
-          <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
-            <div className="px-2">
-              <SiMinutemailer color="" />
-            </div>
-            Sent
-          </li>
-          <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
-            <div className="px-2">
-              <AiOutlineStar color="" />
-            </div>
-            Starred
-          </li>
+            </li>
+          </Link>
+          <Link to="sent">
+            <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
+              <div className="px-2">
+                <SiMinutemailer color="" />
+              </div>
+              Sent
+            </li>
+          </Link>
+          <Link to="starred">
+            <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
+              <div className="px-2">
+                <AiOutlineStar color="" />
+              </div>
+              Starred
+            </li>
+          </Link>
         </ul>
       </div>
     </>

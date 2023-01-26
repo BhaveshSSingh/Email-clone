@@ -15,12 +15,11 @@ const AllEmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
   const [hidden, setHidden] = useState("hidden");
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllEmails());
   }, []);
   const allEmails = useSelector((state) => state.email.listOfEmails);
-
-  const dispatch = useDispatch();
 
   const emailClickHandler = (email) => {
     setSplitScreen("flex");

@@ -2,8 +2,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const Search = () => {
   return (
-    <div className="w-[60%] ">
-      <div className=" mx-auto my-2">
+    <div className="w-[40%] ">
+      <div className=" my-2">
         <form class="flex items-center">
           <div class="relative w-full">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
