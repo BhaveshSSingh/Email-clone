@@ -1,5 +1,5 @@
 import { AiOutlineStar } from "react-icons/ai";
-import { BsFillPencilFill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillPersonFill } from "react-icons/bs";
 import { CiInboxIn } from "react-icons/ci";
 import { SiMinutemailer } from "react-icons/si";
 import { Link } from "react-router-dom";
@@ -39,6 +39,14 @@ const Panel = () => {
                 <AiOutlineStar color="" />
               </div>
               Starred
+            </li>
+          </Link>
+          <Link to="profile">
+            <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
+              <div className="px-2">
+                <BsFillPersonFill color="" />
+              </div>
+              Profile
             </li>
           </Link>
         </ul>

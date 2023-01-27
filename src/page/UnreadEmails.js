@@ -41,7 +41,7 @@ const UnreadEmails = () => {
         )}
       </div>
       <div
-        className={`h-fit rounded-lg border border-gray-400 pr-9  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
+        className={`h-fit rounded-lg border border-gray-400 pr-9 dark:bg-gray-600  pt-6 mt-4 bg-white ml-6 flex  max-w-[60%] ${hidden}`}
       >
         <EmailBody />
       </div>

@@ -13,11 +13,13 @@ const Tabs = () => {
 
   return (
     <>
-      <div className="flex rounded-lg border border-purple-300 p-2">
+      <div className="flex rounded-lg border border-purple-300 p-2 ">
         <button
           type="button"
-          className={`p-1 w-[90px] rounded-full ${
-            toggleTab === "All" ? "active_tab" : ""
+          className={`p-1 w-[90px] rounded-full   ${
+            toggleTab === "All"
+              ? "active_tab  dark:bg-gray-600 dark:text-gray-100"
+              : ""
           }`}
           onClick={() => selectTab("All")}
         >
@@ -25,8 +27,10 @@ const Tabs = () => {
         </button>
         <button
           type="button"
-          className={`p-1 w-[90px] rounded-full ${
-            toggleTab === "unread tab" ? "active_tab" : ""
+          className={`p-1 w-[90px] rounded-full  ${
+            toggleTab === "unread tab"
+              ? "active_tab  dark:bg-gray-600 dark:text-gray-100"
+              : ""
           }`}
           onClick={() => selectTab("unread tab")}
         >
@@ -34,8 +38,10 @@ const Tabs = () => {
         </button>
         <button
           type="button"
-          className={`p-1 mx-3 rounded-full w-[70px]  ${
-            toggleTab === "read tab" ? "active_tab" : ""
+          className={`p-1 mx-3 rounded-full w-[70px]   ${
+            toggleTab === "read tab"
+              ? "active_tab  dark:bg-gray-600 dark:text-gray-100"
+              : ""
           }`}
           onClick={() => selectTab("read tab")}
         >
@@ -43,8 +49,10 @@ const Tabs = () => {
         </button>
         <button
           type="button"
-          className={`p-1 rounded-full w-[100px]  ${
-            toggleTab === "favorites tab" ? "active_tab" : ""
+          className={`p-1 rounded-full w-[100px]   ${
+            toggleTab === "favorites tab"
+              ? "active_tab  dark:bg-gray-600 dark:text-gray-100"
+              : ""
           }`}
           onClick={() => selectTab("favorites tab")}
         >

@@ -17,14 +17,14 @@ const EmailBody = () => {
 
   return (
     <>
-      <div className="pr-6 pl-9 text-gray-100">
+      <div className="pr-6 pl-9 text-gray-100 ">
         <div className="w-16 h-16 object-fill rounded-full  bg-purple-500 p-[15px] flex  justify-center">
           <div className="text-2xl">
             {clickedEmailInfo?.from?.name.substring(0, 1)}
           </div>
         </div>
       </div>
-      <div className="flex flex-col pt-3">
+      <div className="flex flex-col pt-3 ">
         <div className="flex justify-between">
           <div className="pr-1 font-bold text-3xl text-black">
             {clickedEmailInfo?.subject}
