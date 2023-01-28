@@ -1,7 +1,10 @@
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavEmails } from "../app/features/emailSlice";
+import { BiArrowBack } from "react-icons/bi";
 import Shimmerbody from "../components/loading/Shimmerbody";
+import { Link } from "react-router-dom";
+
 const SingleEmailPage = () => {
   const dispatch = useDispatch();
 
@@ -15,7 +18,18 @@ const SingleEmailPage = () => {
   };
   return (
     <>
-      <div>button to go back with maybe delete functionality ?</div>{" "}
+      <div className="border border-purple-300 rounded-lg p-2">
+        <Link to="/inbox">
+          <button
+            type="button"
+            class="text-purple-700 border border-purple-700 hover:bg-purple-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-purple-500 dark:text-purple-500 dark:hover:text-white dark:focus:ring-purple-800"
+          >
+            <BiArrowBack />
+            <span class="sr-only">Icon description</span>
+          </button>
+        </Link>
+        with maybe delete functionality ?
+      </div>{" "}
       <div className="pr-6 pl-9 text-gray-100 ">
         <div className="w-16 h-16 object-fill rounded-full  bg-purple-500 p-[15px] flex  justify-center">
           <div className="text-2xl">

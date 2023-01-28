@@ -13,7 +13,7 @@ const Tabs = () => {
 
   return (
     <>
-      <div className="flex rounded-lg border border-purple-300 p-2 w-[80vw]">
+      <div className="flex rounded-lg border border-purple-300 p-2 w-[88vw]">
         <button
           type="button"
           className={`p-1 w-[90px] rounded-full   ${

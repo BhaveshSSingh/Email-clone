@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllEmails,
@@ -8,14 +8,10 @@ import {
 import { addToUnReadEmails } from "../app/features/emailSlice";
 import { addToReadEmails } from "../app/features/emailSlice";
 import EmailTab from "./EmailTab";
-import EmailBody from "./EmailBody";
 import Shimmer from "./loading/Shimmer";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AllEmailList = () => {
-  const [splitScreen, setSplitScreen] = useState("");
-  const [hidden, setHidden] = useState("hidden");
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllEmails());
@@ -23,9 +19,6 @@ const AllEmailList = () => {
   const allEmails = useSelector((state) => state.email.listOfEmails);
 
   const emailClickHandler = (email) => {
-    setSplitScreen("flex");
-    setHidden("");
-
     dispatch(addToReadEmails(email));
     dispatch(addToUnReadEmails(email));
     dispatch(fetchEmailBody(email.id));
@@ -34,7 +27,7 @@ const AllEmailList = () => {
 
   return (
     <>
-      <div className={`${splitScreen}`}>
+      <div>
         <div>
           {allEmails.length === 0 ? (
             <div className="pt-3">
@@ -50,11 +43,6 @@ const AllEmailList = () => {
             ))
           )}
         </div>
-        {/* <div
-          className={`h-fit rounded-lg border border-gray-400 pr-9  pt-6 mt-4 bg-white dark:bg-gray-600 ml-6 flex  max-w-[60%] ${hidden}`}
-        >
-          <EmailBody />
-        </div> */}
       </div>
     </>
   );
