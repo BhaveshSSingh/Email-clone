@@ -19,7 +19,7 @@ const Nav = () => {
         <Search />
         <div className="flex justify-center items-center">
           <Link to="/profile">
-            <div className="w-10 h-10  ring-2 p-1 object-fill rounded-full  bg-purple-500 flex  justify-center mr-4">
+            <div className="w-10 h-10  ring-4 ring-pink-400 p-1 object-fill rounded-full text-gray-100 bg-purple-500 flex  justify-center mr-4">
               <div className="text-2xl">Q</div>
             </div>
           </Link>
@@ -28,14 +28,14 @@ const Nav = () => {
             {theme === "light" ? (
               <BsFillMoonStarsFill
                 size={30}
-                className="ml-2 mr-[-25px] text-slate-700 border border-slate-700 rounded-full p-1 w-10 h-10 shadow-lg shadow-gray-400"
+                className="ml-2 mr-[-25px] ring-4 ring-slate-400  text-slate-700  rounded-full p-1 w-10 h-10 shadow-lg shadow-gray-400"
                 onClick={handleThemeSwitch}
               />
             ) : (
               <BsFillCloudSunFill
                 size={30}
                 className="ml-2 mr-[-25px] text-yellow-400
-                border border-yellow-400 rounded-full p-1 w-10 h-10 shadow-lg shadow-yellow-900
+               ring-4 ring-slate-400 rounded-full p-1 w-10 h-10 shadow-lg shadow-slate-600
                 "
                 onClick={handleThemeSwitch}
               />

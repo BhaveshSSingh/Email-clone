@@ -1,9 +1,8 @@
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavEmails } from "../app/features/emailSlice";
-import Shimmerbody from "./loading/Shimmerbody";
-
-const EmailBody = () => {
+import Shimmerbody from "../components/loading/Shimmerbody";
+const SingleEmailPage = () => {
   const dispatch = useDispatch();
 
   const emailbody = useSelector((store) => store.email.emailBody);
@@ -14,9 +13,9 @@ const EmailBody = () => {
   const favBtnHandler = (clickedEmailInfo) => {
     dispatch(addToFavEmails(clickedEmailInfo));
   };
-
   return (
     <>
+      <div>button to go back with maybe delete functionality ?</div>{" "}
       <div className="pr-6 pl-9 text-gray-100 ">
         <div className="w-16 h-16 object-fill rounded-full  bg-purple-500 p-[15px] flex  justify-center">
           <div className="text-2xl">
@@ -53,4 +52,4 @@ const EmailBody = () => {
   );
 };
 
-export default EmailBody;
+export default SingleEmailPage;

@@ -5,6 +5,7 @@ import Filters from "./components/Filters";
 import SentPage from "./page/SentPage";
 import StarredPage from "./page/StarredPage";
 import ProfilePage from "./page/ProfilePage";
+import SingleEmailPage from "./page/SingleEmailPage";
 
 export const router = createBrowserRouter([
   {
@@ -15,12 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "/inbox",
         element: <Filters />,
-        // children:[{
-
-        //   path:"inbox:id",
-        //   element:<EmailPage/>,
-        // }
-        //       ]
+      },
+      {
+        path: "/:id",
+        element: <SingleEmailPage />,
       },
       { path: "/sent", element: <SentPage /> },
       { path: "/starred", element: <StarredPage /> },

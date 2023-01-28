@@ -10,6 +10,7 @@ import { addToReadEmails } from "../app/features/emailSlice";
 import EmailTab from "./EmailTab";
 import EmailBody from "./EmailBody";
 import Shimmer from "./loading/Shimmer";
+import { Link, Outlet } from "react-router-dom";
 
 const AllEmailList = () => {
   const [splitScreen, setSplitScreen] = useState("");
@@ -42,17 +43,18 @@ const AllEmailList = () => {
           ) : (
             allEmails.map((email) => (
               <div onClick={() => emailClickHandler(email)} key={email.id}>
-                <EmailTab email={email} />
+                <Link to={`/${email.id}`}>
+                  <EmailTab email={email} />
+                </Link>
               </div>
             ))
           )}
         </div>
-
-        <div
+        {/* <div
           className={`h-fit rounded-lg border border-gray-400 pr-9  pt-6 mt-4 bg-white dark:bg-gray-600 ml-6 flex  max-w-[60%] ${hidden}`}
         >
           <EmailBody />
-        </div>
+        </div> */}
       </div>
     </>
   );
