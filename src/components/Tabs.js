@@ -12,7 +12,7 @@ const Tabs = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col">
       <div className="flex rounded-lg border border-purple-300 p-2 w-[88vw]">
         <button
           type="button"
@@ -92,7 +92,7 @@ const Tabs = () => {
           </div>
         </>
       }
-    </>
+    </div>
   );
 };
 

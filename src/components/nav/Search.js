@@ -1,5 +1,3 @@
-import { AiOutlineSearch } from "react-icons/ai";
-
 const Search = () => {
   return (
     <div className="w-[40%] ">

@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorMsg from "./components/ErrorMsg";
 import App from "./App";
-import Filters from "./components/Filters";
 import SentPage from "./page/SentPage";
 import StarredPage from "./page/StarredPage";
 import ProfilePage from "./page/ProfilePage";
 import SingleEmailPage from "./page/SingleEmailPage";
+import Tabs from "./components/Tabs";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/inbox",
-        element: <Filters />,
+        element: <Tabs />,
       },
       {
         path: "/:id",
