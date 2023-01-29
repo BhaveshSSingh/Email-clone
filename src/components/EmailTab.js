@@ -1,10 +1,11 @@
 import Moment from "react-moment";
+import { AiFillStar } from "react-icons/ai";
 
 const EmailTab = ({ email }) => {
   const { subject, short_description, date } = email;
   return (
     <>
-      <div className="border  border-gray-400 hover:border-purple-500 hover:bg-purple-500 hover:bg-opacity-5  min-h-32 pb-2 pt-3 my-4  flex rounded-lg cursor-pointer w-full">
+      <div className="border  border-gray-400 hover:border-purple-500 hover:bg-purple-500 hover:bg-opacity-5  min-h-32 pb-2 pt-3 my-4  flex rounded-lg cursor-pointer w-full ">
         <div className="pr-6 pl-6  text-gray-100">
           <div className="w-16 h-16 object-fill rounded-full  bg-purple-500 p-[15px] flex  justify-center">
             <div className="text-2xl">{email?.from?.name?.substring(0, 1)}</div>
@@ -19,7 +20,7 @@ const EmailTab = ({ email }) => {
             Subject : <span className="pr-1 font-bold">{subject}</span>{" "}
           </h3>
 
-          <p className=" line__clamp">{short_description}</p>
+          <p className="">{short_description}</p>
           <div className="pt-2">
             <span className="pr-7">
               <Moment format="DD/MM/yyyy hh:mma">{date}</Moment>
@@ -28,6 +29,19 @@ const EmailTab = ({ email }) => {
           </div>
         </div>
       </div>
+
+      {/* WIll need grid for this */}
+      {/* <div>
+      <div>
+
+        star
+        name
+      </div>
+
+        <div>Subject</div>
+
+        <div>Date</div>
+      </div> */}
     </>
   );
 };

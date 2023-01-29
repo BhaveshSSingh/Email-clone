@@ -2,12 +2,12 @@ const Search = () => {
   return (
     <div className="w-[40%] ">
       <div className=" my-2">
-        <form class="flex items-center">
-          <div class="relative w-full">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <form className="flex items-center">
+          <div className="relative w-full">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
-                class="w-5 h-5 text-purple-300 dark:text-purple-300"
+                className="w-5 h-5 text-purple-300 dark:text-purple-300"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -22,17 +22,17 @@ const Search = () => {
             <input
               type="text"
               id="simple-search"
-              class="bg-purple-200 border border-purple-300 text-purple-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5  dark:bg-gray-400 dark:border-purple-600 dark:placeholder-gray-800 dark:white dark:focus:ring-purple-500 dark:focus:border-purple-500"
+              className="bg-purple-200 border border-purple-300 text-purple-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full pl-10 p-2.5  dark:bg-gray-400 dark:border-purple-600 dark:placeholder-gray-800 dark:white dark:focus:ring-purple-500 dark:focus:border-purple-500"
               placeholder="Search"
               required
             />
           </div>
           <button
             type="submit"
-            class="p-2.5 ml-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+            className="p-2.5 ml-2 text-sm font-medium text-white bg-purple-700 rounded-lg border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
           >
             <svg
-              class="w-5 h-5"
+              className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -45,7 +45,7 @@ const Search = () => {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <span class="sr-only">Search</span>
+            <span className="sr-only">Search</span>
           </button>
         </form>
       </div>

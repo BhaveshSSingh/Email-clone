@@ -1,6 +1,6 @@
-import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import { BsFillPencilFill, BsFillPersonFill } from "react-icons/bs";
-import { CiInboxIn } from "react-icons/ci";
+import { HiInboxArrowDown } from "react-icons/hi2";
 import { SiMinutemailer } from "react-icons/si";
 import { Link } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Panel = () => {
           <Link to="inbox">
             <li className="px-4 flex  justify-start items-center py-2 hover:bg-purple-700 hover:text-white cursor-pointer                   rounded-xl">
               <div className="px-2">
-                <CiInboxIn className="left-0" />
+                <HiInboxArrowDown className="left-0" />
               </div>
               Inbox
             </li>
@@ -36,7 +36,7 @@ const Panel = () => {
           <Link to="starred">
             <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
               <div className="px-2">
-                <AiOutlineStar />
+                <AiFillStar />
               </div>
               Starred
             </li>

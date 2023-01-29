@@ -35,7 +35,7 @@ const Nav = () => {
               <BsFillCloudSunFill
                 size={30}
                 className="ml-2 mr-[-25px] text-yellow-400
-               ring-4 ring-slate-400 rounded-full p-1 w-10 h-10 shadow-lg shadow-slate-600
+               ring-4 ring-orange-300 rounded-full p-1 w-10 h-10 shadow-lg shadow-slate-600
                 "
                 onClick={handleThemeSwitch}
               />

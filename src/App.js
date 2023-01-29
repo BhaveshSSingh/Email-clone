@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Nav from "./components/nav/Nav";
-import Panel from "./components/panel/Panel";
+import Panel from "./components/Panel";
+import SendMail from "./components/SendMail";
 
 const App = () => {
   return (
@@ -8,7 +9,10 @@ const App = () => {
       className="bg-gray-100
          text-black  
        dark:bg-gray-800 dark:text-gray-100
-    h-full  min-h-screen"
+    h-full  min-h-screen
+    
+
+    "
     >
       <Nav />
       <div className="flex">
@@ -18,6 +22,7 @@ const App = () => {
           <Outlet />
         </div>
       </div>
+      <SendMail />
     </div>
   );
 };
