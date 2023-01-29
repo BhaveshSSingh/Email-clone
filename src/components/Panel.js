@@ -2,14 +2,22 @@ import { AiFillStar } from "react-icons/ai";
 import { BsFillPencilFill, BsFillPersonFill } from "react-icons/bs";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { SiMinutemailer } from "react-icons/si";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { openSendMessage } from "../app/features/messageSlice";
 
 const Panel = () => {
+  const dispatch = useDispatch();
+
+  const composeBtnHandler = () => {
+    dispatch(openSendMessage());
+  };
   return (
     <>
       <div className="z-30 bg-white h-[89vh] max-w-min-1/3 border border-b-0   shadow-lg dark:bg-gray-900 dark:text-white dark:border-gray-700">
         <ul className="pt-3 m-2">
           <button
+            onClick={composeBtnHandler}
             type="button"
             className="text-white bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-8"
           >

@@ -16,6 +16,7 @@ const AllEmailList = () => {
   useEffect(() => {
     dispatch(fetchAllEmails());
   }, []);
+
   const allEmails = useSelector((state) => state.email.listOfEmails);
 
   const emailClickHandler = (email) => {
