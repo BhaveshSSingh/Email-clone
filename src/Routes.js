@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorMsg from "./components/ErrorMsg";
 import App from "./App";
-import SentPage from "./page/SentPage";
 import StarredPage from "./page/StarredPage";
 import ProfilePage from "./page/ProfilePage";
 import SingleEmailPage from "./page/SingleEmailPage";
 import Tabs from "./components/Tabs";
+import SentPage from "./page/sent/SentPage";
 
 export const router = createBrowserRouter([
   {

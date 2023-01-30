@@ -29,8 +29,8 @@ const UnreadEmails = () => {
           <div className="">No More Emails</div>
         ) : (
           unReadEmailList.map((email) => (
-            <Link to="/email:id">
-              <div onClick={() => emailClickHandler(email)} key={email.id}>
+            <Link to="/email:id" key={email.id}>
+              <div onClick={() => emailClickHandler(email)}>
                 <EmailTab email={email} />
               </div>
             </Link>

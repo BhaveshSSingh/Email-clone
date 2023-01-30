@@ -17,8 +17,8 @@ const SendMail = () => {
     await addDoc(collection(db, "message"), {
       to: formData.to,
       subject: formData.subject,
-      message: formData.message,
-      timeStamp: serverTimestamp(),
+      short_description: formData.message,
+      date: serverTimestamp(),
     });
 
     dispatch(closeSendMessage());

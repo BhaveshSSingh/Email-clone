@@ -30,9 +30,9 @@ const FavEmails = () => {
           <h1>No Favorites Emails</h1>
         ) : (
           removeDupe(favEmailList).map((email) => (
-            <div onClick={() => emailClickHandler(email)} key={email.id}>
-              <Link to={`/${email.id}`}>
-                <EmailTab email={email} key={email.id} />
+            <div onClick={() => emailClickHandler(email)}>
+              <Link to={`/${email.id}`} key={email.id}>
+                <EmailTab email={email} />
               </Link>
             </div>
           ))

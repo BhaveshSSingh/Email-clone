@@ -20,8 +20,8 @@ const ReadEmails = () => {
         ) : (
           readEmails.map((email) => (
             <div onClick={() => emailClickHandler(email)}>
-              <Link to={`/${email.id}`}>
-                <EmailTab email={email} key={email.id} />
+              <Link to={`/${email.id}`} key={email.id}>
+                <EmailTab email={email} />
               </Link>
             </div>
           ))
