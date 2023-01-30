@@ -1,8 +1,8 @@
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFavEmails } from "../app/features/emailSlice";
+import { addToFavEmails } from "../../app/features/emailSlice";
 import { BiArrowBack } from "react-icons/bi";
-import Shimmerbody from "../components/loading/Shimmerbody";
+import Shimmerbody from "../../components/loading/Shimmerbody";
 import { Link } from "react-router-dom";
 
 const SingleEmailPage = () => {
@@ -42,12 +42,13 @@ const SingleEmailPage = () => {
             <div className="pr-1 font-bold text-3xl text-black dark:text-gray-400">
               {clickedEmailInfo?.subject}
             </div>
+
             <button
+              onClick={favBtnHandler}
               type="button"
-              className="rounded-full h-[35px] bg-purple-500 w-[150px] text-gray-200"
-              onClick={() => favBtnHandler()}
+              class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2"
             >
-              Mark as favorite
+              Mark as Favorite
             </button>
           </div>
 

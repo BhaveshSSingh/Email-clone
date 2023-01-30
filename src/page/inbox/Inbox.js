@@ -1,7 +1,7 @@
 import { useState } from "react";
-import FavEmails from "../page/FavEmails";
-import ReadEmails from "../page/ReadEmails";
-import UnreadEmails from "../page/UnreadEmails";
+import FavEmails from "./FavEmails";
+import ReadEmails from "./ReadEmails";
+import UnreadEmails from "./UnreadEmails";
 import AllEmailList from "./AllEmailList";
 
 const Tabs = () => {

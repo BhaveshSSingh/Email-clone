@@ -4,6 +4,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import EmailRow from "./EmailRow";
+import Shimmer from "../../components/loading/Shimmer";
 
 const SentPage = () => {
   const [emails, setEmails] = useState([]);
@@ -13,17 +14,16 @@ const SentPage = () => {
       query(collection(db, "message"), orderBy("date", "desc")),
       (snapshot) => {
         setEmails(snapshot.docs);
-        console.log("useEffect");
       }
     );
     return () => {
       unSub();
     };
   }, [db]);
-  console.log(emails);
+
   return (
-    <div>
-      <div className="border  border-purple-300 rounded-lg p-2 w-[89vw]">
+    <div className="">
+      <div className="border  w-[88vw]  border-purple-300 rounded-lg p-2">
         <Link to="/inbox">
           <button
             type="button"
@@ -34,9 +34,17 @@ const SentPage = () => {
         </Link>
       </div>
       <div>
-        {emails.map((email) => (
-          <EmailRow email={email.data()} />
-        ))}
+        {!emails || emails.length === 0 ? (
+          <div className="pt-3">
+            <Shimmer />
+          </div>
+        ) : (
+          emails.map((email) => (
+            <Link key={email.id} to={`/sent/${email.id}`} email={email}>
+              <EmailRow email={email.data()} />
+            </Link>
+          ))
+        )}
       </div>
     </div>
   );

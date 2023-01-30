@@ -5,22 +5,9 @@ import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
+import Login from "./Login";
 
 const StarredPage = () => {
-  // const [emails, setEmails] = useState();
-
-  // useEffect(() => {
-  //   onSnapshot(
-  //     (collection(db, "message"), orderBy("timestamp", "desc")),
-  //     (snapshot) =>
-  //       setEmails()
-  //       // snapshot.docs.map((doc) => ({
-  //       //   id: doc.id,
-  //       //   data: doc.data,
-  //       // }))
-  //   );
-  // }, []);
-
   return (
     <div>
       <div className="border  border-purple-300 rounded-lg p-2  w-[89vw]">
@@ -34,6 +21,7 @@ const StarredPage = () => {
         </Link>
       </div>
       StarredPage
+      <Login />
     </div>
   );
 };

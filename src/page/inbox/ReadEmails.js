@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchEmailBody, saveClickedEmail } from "../app/features/emailSlice";
-import EmailTab from "../components/EmailTab";
+import {
+  fetchEmailBody,
+  saveClickedEmail,
+} from "../../app/features/emailSlice";
+import EmailTab from "../../components/EmailTab";
 
 const ReadEmails = () => {
   const dispatch = useDispatch();

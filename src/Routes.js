@@ -3,9 +3,10 @@ import ErrorMsg from "./components/ErrorMsg";
 import App from "./App";
 import StarredPage from "./page/StarredPage";
 import ProfilePage from "./page/ProfilePage";
-import SingleEmailPage from "./page/SingleEmailPage";
-import Tabs from "./components/Tabs";
+import SingleEmailPage from "./page/inbox/SingleEmailPage";
+import Tabs from "./page/inbox/Inbox";
 import SentPage from "./page/sent/SentPage";
+import SingleSentEmail from "./page/sent/SingleSentEmail";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
         element: <SingleEmailPage />,
       },
       { path: "/sent", element: <SentPage /> },
+      { path: "/sent/:id", element: <SingleSentEmail /> },
       { path: "/starred", element: <StarredPage /> },
       { path: "/profile", element: <ProfilePage /> },
     ],

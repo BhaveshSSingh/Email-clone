@@ -4,11 +4,11 @@ import {
   fetchAllEmails,
   fetchEmailBody,
   saveClickedEmail,
-} from "../app/features/emailSlice";
-import { addToUnReadEmails } from "../app/features/emailSlice";
-import { addToReadEmails } from "../app/features/emailSlice";
-import EmailTab from "./EmailTab";
-import Shimmer from "./loading/Shimmer";
+} from "../../app/features/emailSlice";
+import { addToUnReadEmails } from "../../app/features/emailSlice";
+import { addToReadEmails } from "../../app/features/emailSlice";
+import EmailTab from "../../components/EmailTab";
+import Shimmer from "../../components/loading/Shimmer";
 import { Link } from "react-router-dom";
 
 const AllEmailList = () => {

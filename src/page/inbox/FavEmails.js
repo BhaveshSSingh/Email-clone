@@ -4,8 +4,8 @@ import {
   addToFavEmails,
   fetchEmailBody,
   saveClickedEmail,
-} from "../app/features/emailSlice";
-import EmailTab from "../components/EmailTab";
+} from "../../app/features/emailSlice";
+import EmailTab from "../../components/EmailTab";
 
 const FavEmails = () => {
   const dispatch = useDispatch();

@@ -9,7 +9,6 @@ const SendMail = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -58,7 +57,7 @@ const SendMail = () => {
           <p>
             {errors.to && (
               <div
-                class="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                className="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                 role="alert"
               >
                 To is required
@@ -76,7 +75,7 @@ const SendMail = () => {
           <p>
             {errors.subject && (
               <div
-                class="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                className="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                 role="alert"
               >
                 Subject is required
@@ -84,9 +83,8 @@ const SendMail = () => {
             )}
           </p>
         }
-        <input
-          // name="message"
-          className="h-64 dark:bg-gray-600 dark:text-gray-100"
+        <textarea
+          className="p-2 h-64 dark:bg-gray-600 dark:text-gray-100"
           placeholder="Message..."
           type="text"
           {...register("message", { required: true })}
@@ -95,7 +93,7 @@ const SendMail = () => {
           <p>
             {errors.message && (
               <div
-                class="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                className="p-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                 role="alert"
               >
                 Message is required
