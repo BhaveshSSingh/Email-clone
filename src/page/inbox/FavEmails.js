@@ -17,19 +17,13 @@ const FavEmails = () => {
   };
   const favEmailList = useSelector((store) => store.email.favEmails);
 
-  const removeDupe = (favEmailList) => {
-    return favEmailList.filter(
-      (item, index) => favEmailList.indexOf(item) === index
-    );
-  };
-
   return (
     <div>
       <div to="/email:id">
         {favEmailList.length === 0 ? (
           <h1>No Favorites Emails</h1>
         ) : (
-          removeDupe(favEmailList).map((email) => (
+          favEmailList.map((email) => (
             <div onClick={() => emailClickHandler(email)}>
               <Link to={`/${email.id}`} key={email.id}>
                 <EmailTab email={email} />

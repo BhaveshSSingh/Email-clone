@@ -19,6 +19,7 @@ export const fetchAllEmails = createAsyncThunk(
   "emails/fetchEmails",
   async () => {
     const data = await axios.get(EMAIL_URL);
+    console.log("emails fetched");
     return data;
   }
 );
@@ -50,8 +51,12 @@ const emailSlice = createSlice({
       state.unReadEmails = newUn;
     },
     addToFavEmails: (state) => {
-      const fav = state.clickedEmail;
-      state.favEmails.push(fav);
+      const exist = state.favEmails.find(
+        (email) => email.id === state.clickedEmail.id
+      );
+      if (!exist) {
+        state.favEmails.push(state.clickedEmail);
+      }
     },
 
     saveClickedEmail: (state, action) => {
