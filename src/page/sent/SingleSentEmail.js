@@ -1,4 +1,3 @@
-import React from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
@@ -45,13 +44,6 @@ const SingleSentEmail = () => {
             <div className="pr-1 font-bold text-3xl text-black dark:text-gray-400">
               {emailData?.subject}
             </div>
-            {/* <button
-              type="button"
-              className="rounded-full h-[35px] bg-purple-500 w-[150px] text-gray-200"
-              //   onClick={() => favBtnHandler()}
-            >
-              Mark as favorite
-            </button> */}
           </div>
 
           <span className="py-4">

@@ -1,5 +1,4 @@
 import Moment from "react-moment";
-import { AiFillStar } from "react-icons/ai";
 
 const EmailTab = ({ email }) => {
   const { subject, short_description, date } = email;
@@ -29,19 +28,6 @@ const EmailTab = ({ email }) => {
           </div>
         </div>
       </div>
-
-      {/* WIll need grid for this */}
-      {/* <div>
-      <div>
-
-        star
-        name
-      </div>
-
-        <div>Subject</div>
-
-        <div>Date</div>
-      </div> */}
     </>
   );
 };

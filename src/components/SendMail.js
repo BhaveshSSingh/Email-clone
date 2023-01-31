@@ -1,6 +1,7 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useForm } from "react-hook-form";
-import { GrClose } from "react-icons/gr";
+import { MdClose } from "react-icons/md";
+import { AiOutlineSend } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../app/features/messageSlice";
 import { db } from "../firebase";
@@ -39,8 +40,12 @@ const SendMail = () => {
       "
       >
         <h3>New Message</h3>
-        <button onClick={closeBtnHandler}>
-          <GrClose />
+        <button
+          type="button"
+          onClick={closeBtnHandler}
+          className="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800"
+        >
+          <MdClose />
         </button>
       </div>
       <form
@@ -108,9 +113,9 @@ const SendMail = () => {
           <button
             onClick={onSubmit()}
             type="submit"
-            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 flex items-center"
           >
-            Send
+            Send <AiOutlineSend className="ml-2" />
           </button>
         </div>
       </form>

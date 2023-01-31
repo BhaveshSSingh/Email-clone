@@ -1,11 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebase";
-import Login from "./Login";
 
 const StarredPage = () => {
   return (
@@ -21,7 +15,6 @@ const StarredPage = () => {
         </Link>
       </div>
       StarredPage
-      <Login />
     </div>
   );
 };

@@ -49,7 +49,7 @@ const emailSlice = createSlice({
       );
       state.unReadEmails = newUn;
     },
-    addToFavEmails: (state, action) => {
+    addToFavEmails: (state) => {
       const fav = state.clickedEmail;
       state.favEmails.push(fav);
     },

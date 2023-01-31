@@ -4,9 +4,11 @@ import { MdEmail } from "react-icons/md";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
   const { handleThemeSwitch, theme } = useContext(ThemeContext);
+  const user = useSelector((store) => store.user.user.displayName);
 
   return (
     <>
@@ -20,7 +22,7 @@ const Nav = () => {
         <div className="flex justify-center items-center">
           <Link to="/profile">
             <div className="w-10 h-10  ring-4 ring-pink-400 p-1 object-fill rounded-full text-gray-100 bg-purple-500 flex  justify-center mr-4">
-              <div className="text-2xl">Q</div>
+              <div className="text-2xl">{user?.substring(0, 1)}</div>
             </div>
           </Link>
 
