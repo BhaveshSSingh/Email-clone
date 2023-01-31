@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchAllEmails,
   fetchEmailBody,
   saveClickedEmail,
 } from "../../app/features/emailSlice";
@@ -13,9 +11,6 @@ import { Link } from "react-router-dom";
 
 const AllEmailList = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAllEmails());
-  }, []);
 
   const allEmails = useSelector((state) => state.email.listOfEmails);
 

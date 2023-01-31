@@ -7,6 +7,7 @@ import Login from "./page/Login";
 import SendMail from "./components/SendMail";
 import { auth } from "./firebase";
 import { loginReducer } from "./app/features/userSlice";
+import { fetchAllEmails } from "./app/features/emailSlice";
 
 const App = () => {
   const navigate = useNavigate();
@@ -31,6 +32,10 @@ const App = () => {
         );
       }
     });
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchAllEmails());
   }, []);
 
   return (
