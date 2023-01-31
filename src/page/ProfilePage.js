@@ -5,6 +5,10 @@ import { auth } from "../firebase";
 
 const ProfilePage = () => {
   const user = useSelector((store) => store.user.user);
+  const sentEmail = useSelector((store) => store.message.numberOfSentEmails);
+  const favEmail = useSelector((store) => store.email.favEmails);
+  const readEmail = useSelector((store) => store.email.readEmails);
+  const unReadEmail = useSelector((store) => store.email.unReadEmails);
 
   const dispatch = useDispatch();
 
@@ -25,7 +29,7 @@ const ProfilePage = () => {
         <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full flex justify-center">
-              <div className="w-40 h-40  ring-4 ring-pink-400 p-1 object-fill rounded-full text-gray-100 bg-purple-500 flex  justify-center mr-4">
+              <div className="w-40 h-40  ring-4 ring-pink-400 p-3 object-fill rounded-full text-gray-100 bg-purple-500 flex  justify-center mr-4">
                 <div className="text-9xl pt-2">
                   {user?.displayName.substring(0, 1)}
                 </div>
@@ -35,7 +39,7 @@ const ProfilePage = () => {
               <div className="flex justify-center lg:pt-4 pt-2 pb-0">
                 <div className="p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-slate-700  dark:text-gray-100">
-                    3,360
+                    {sentEmail}
                   </span>
                   <span className="text-sm text-slate-400  dark:text-gray-100">
                     Sent Emails
@@ -48,10 +52,18 @@ const ProfilePage = () => {
                   <span className="text-sm text-slate-400 dark:text-gray-100">
                     Received Emails
                   </span>
-                </div>
+                </div>{" "}
+                <div className="p-3 text-center">
+                  <span className="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-gray-100">
+                    {unReadEmail.length}
+                  </span>
+                  <span className="text-sm text-slate-400 dark:text-gray-100">
+                    Unread Emails
+                  </span>
+                </div>{" "}
                 <div className="p-3 text-center dark:text-gray-100">
                   <span className="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-gray-100">
-                    564
+                    {favEmail.length}
                   </span>
                   <span className="text-sm text-slate-400 dark:text-gray-100">
                     Favorite Emails
@@ -59,15 +71,7 @@ const ProfilePage = () => {
                 </div>
                 <div className="p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-gray-100">
-                    564
-                  </span>
-                  <span className="text-sm text-slate-400 dark:text-gray-100">
-                    Starred Emails
-                  </span>
-                </div>{" "}
-                <div className="p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-slate-700 dark:text-gray-100">
-                    564
+                    {readEmail.length}
                   </span>
                   <span className="text-sm text-slate-400 dark:text-gray-100">
                     Read Emails
@@ -78,9 +82,9 @@ const ProfilePage = () => {
                     564
                   </span>
                   <span className="text-sm text-slate-400 dark:text-gray-100">
-                    Unread Emails
+                    Starred Emails
                   </span>
-                </div>
+                </div>{" "}
               </div>
             </div>
           </div>

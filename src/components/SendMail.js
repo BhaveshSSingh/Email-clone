@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import { MdClose } from "react-icons/md";
 import { AiOutlineSend } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { closeSendMessage } from "../app/features/messageSlice";
+import {
+  closeSendMessage,
+  numberOfSentMessages,
+} from "../app/features/messageSlice";
 import { db } from "../firebase";
 
 const SendMail = () => {
@@ -22,6 +25,7 @@ const SendMail = () => {
     });
 
     dispatch(closeSendMessage());
+    dispatch(numberOfSentMessages());
   };
 
   const dispatch = useDispatch();

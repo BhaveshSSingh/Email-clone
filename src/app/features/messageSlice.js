@@ -5,21 +5,29 @@ const messageSlice = createSlice({
   initialState: {
     selectedMessage: null,
     sendMessageIsOpen: false,
+    numberOfSentEmails: 0,
   },
   reducers: {
     selectMessage: (state, action) => {
       state.selectedMessage = action.payload;
     },
-    openSendMessage: (state) => {
+    openSendMessage: (state, action) => {
       state.sendMessageIsOpen = true;
     },
     closeSendMessage: (state) => {
       state.sendMessageIsOpen = false;
     },
+    numberOfSentMessages: (state) => {
+      state.numberOfSentEmails += 1;
+    },
   },
 });
 
-export const { openSendMessage, closeSendMessage, selectMessage } =
-  messageSlice.actions;
+export const {
+  openSendMessage,
+  closeSendMessage,
+  selectMessage,
+  numberOfSentMessages,
+} = messageSlice.actions;
 
 export default messageSlice.reducer;
