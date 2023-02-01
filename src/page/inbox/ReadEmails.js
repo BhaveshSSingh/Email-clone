@@ -36,9 +36,9 @@ const ReadEmails = () => {
           <h1>No Read Emails</h1>
         ) : (
           searchFilteredData().map((email) => (
-            <div onClick={() => emailClickHandler(email)}>
+            <div onClick={() => emailClickHandler(email)} key={email.id}>
               <Link to={`/${email.id}`} key={email.id}>
-                <EmailTab email={email} />
+                <EmailTab email={email} key={email.id} />
               </Link>
             </div>
           ))
