@@ -8,6 +8,8 @@ import SendMail from "./components/SendMail";
 import { auth } from "./firebase";
 import { loginReducer } from "./app/features/userSlice";
 import { fetchAllEmails } from "./app/features/emailSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const navigate = useNavigate();
@@ -55,6 +57,7 @@ const App = () => {
           {messageOpen && <SendMail />}
         </div>
       )}
+      <ToastContainer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import { addToFavEmails } from "../../app/features/emailSlice";
 import { BiArrowBack } from "react-icons/bi";
 import Shimmerbody from "../../components/loading/Shimmerbody";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SingleEmailPage = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const SingleEmailPage = () => {
 
   const favBtnHandler = (clickedEmailInfo) => {
     dispatch(addToFavEmails(clickedEmailInfo));
+    toast("Added to Favorites");
   };
   const emailText = emailbody?.data?.body;
   return (

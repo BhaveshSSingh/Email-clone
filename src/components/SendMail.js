@@ -8,6 +8,7 @@ import {
   numberOfSentMessages,
 } from "../app/features/messageSlice";
 import { db } from "../firebase";
+import { toast } from "react-toastify";
 
 const SendMail = () => {
   const {
@@ -24,6 +25,7 @@ const SendMail = () => {
       date: serverTimestamp(),
     });
 
+    toast("Email Sent");
     dispatch(closeSendMessage());
     dispatch(numberOfSentMessages());
   };
@@ -34,15 +36,8 @@ const SendMail = () => {
   };
 
   return (
-    <div
-      className="w-[500px]  z-50  fixed bottom-5  
-       right-10 border-2 border-slate-800 dark:border-slate-300 rounded-xl
-"
-    >
-      <div
-        className="flex items-center justify-between p-2 rounded-t-lg  bg-purple-200 text-gray-800 dark:bg-purple-300 dark:text-black
-      "
-      >
+    <div className="w-[500px]  z-50  fixed bottom-5 right-10 border-2 border-slate-800 dark:border-slate-300 rounded-xl">
+      <div className="flex items-center justify-between p-2 rounded-t-lg  bg-purple-200 text-gray-800 dark:bg-purple-300 dark:text-black">
         <h3>New Message</h3>
         <button
           type="button"

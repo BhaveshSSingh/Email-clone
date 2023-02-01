@@ -2,14 +2,17 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { selectMessage } from "../../app/features/messageSlice";
 
-const EmailRow = ({ email }) => {
-  const { to, id, subject, short_description, date } = email;
+const EmailRow = ({ email, emailId }) => {
+  // console.log(email);
+  const { to, subject, short_description, date } = email;
 
   const dispatch = useDispatch();
 
   const openMail = () => {
-    dispatch(selectMessage({ to, id, subject, short_description, date }));
+    dispatch(selectMessage({ emailId, to, subject, short_description, date }));
   };
+
+  // console.log(uid);
 
   return (
     <>
@@ -36,7 +39,7 @@ const EmailRow = ({ email }) => {
             <span className="pr-7">
               <div>{new Date(date?.seconds * 1000).toUTCString()}</div>
             </span>{" "}
-            <span className="text-purple-500">{}</span>
+            {/* <span className="text-purple-500"> ddd</span> */}
           </div>
         </div>
       </div>

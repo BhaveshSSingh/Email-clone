@@ -8,6 +8,7 @@ import { addToReadEmails } from "../../app/features/emailSlice";
 import EmailTab from "../../components/EmailTab";
 import Shimmer from "../../components/loading/Shimmer";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AllEmailList = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const AllEmailList = () => {
 
   const emailClickHandler = (email) => {
     dispatch(addToReadEmails(email));
+    toast("Added to Read");
+
     dispatch(addToUnReadEmails(email));
     dispatch(fetchEmailBody(email.id));
     dispatch(saveClickedEmail(email));

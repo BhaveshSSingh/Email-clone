@@ -34,14 +34,17 @@ const SentPage = () => {
         </Link>
       </div>
       <div>
-        {!emails || emails.length === 0 ? (
+        {!emails && (
           <div className="pt-3">
             <Shimmer />
           </div>
+        )}{" "}
+        {emails.length === 0 ? (
+          <div>"No Sent Emails"</div>
         ) : (
           emails.map((email) => (
             <Link key={email.id} to={`/sent/${email.id}`} email={email}>
-              <EmailRow email={email.data()} />
+              <EmailRow email={email.data()} emailId={email.id} />
             </Link>
           ))
         )}
