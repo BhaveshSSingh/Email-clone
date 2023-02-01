@@ -13,13 +13,13 @@ const initialState = {
   emailBody: [],
   clickedEmail: [],
   error: "",
+  searchQuery: "",
 };
 
 export const fetchAllEmails = createAsyncThunk(
   "emails/fetchEmails",
   async () => {
     const data = await axios.get(EMAIL_URL);
-    console.log("emails fetched");
     return data;
   }
 );
@@ -62,6 +62,9 @@ const emailSlice = createSlice({
     saveClickedEmail: (state, action) => {
       state.clickedEmail = action.payload;
     },
+    searchLetter: (state, action) => {
+      state.searchQuery = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllEmails.pending, (state) => {
@@ -90,6 +93,7 @@ export const {
   addToReadEmails,
   addToFavEmails,
   saveClickedEmail,
+  searchLetter,
 } = emailSlice.actions;
 
 export default emailSlice.reducer;

@@ -17,11 +17,22 @@ const AllEmailList = () => {
 
   const emailClickHandler = (email) => {
     dispatch(addToReadEmails(email));
-    toast("Added to Read");
+    toast("Added to Read 📖");
 
     dispatch(addToUnReadEmails(email));
     dispatch(fetchEmailBody(email.id));
     dispatch(saveClickedEmail(email));
+  };
+  const searchQuery = useSelector((state) => state.email.searchQuery);
+
+  const searchFilteredData = () => {
+    return allEmails.filter(
+      (item) =>
+        item.from.name.toLowerCase().includes(searchQuery) ||
+        item.from.email.toLowerCase().includes(searchQuery) ||
+        item.short_description.toLowerCase().includes(searchQuery) ||
+        item.subject.toLowerCase().includes(searchQuery)
+    );
   };
 
   return (
@@ -33,7 +44,7 @@ const AllEmailList = () => {
               <Shimmer />
             </div>
           ) : (
-            allEmails.map((email) => (
+            searchFilteredData().map((email) => (
               <div onClick={() => emailClickHandler(email)} key={email.id}>
                 <Link to={`/${email.id}`}>
                   <EmailTab email={email} />

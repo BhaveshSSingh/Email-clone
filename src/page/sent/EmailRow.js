@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { selectMessage } from "../../app/features/messageSlice";
 
 const EmailRow = ({ email, emailId }) => {
-  // console.log(email);
   const { to, subject, short_description, date } = email;
 
   const dispatch = useDispatch();
@@ -11,8 +10,6 @@ const EmailRow = ({ email, emailId }) => {
   const openMail = () => {
     dispatch(selectMessage({ emailId, to, subject, short_description, date }));
   };
-
-  // console.log(uid);
 
   return (
     <>

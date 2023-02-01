@@ -3,6 +3,7 @@ import FavEmails from "./FavEmails";
 import ReadEmails from "./ReadEmails";
 import UnreadEmails from "./UnreadEmails";
 import AllEmailList from "./AllEmailList";
+import { useSelector } from "react-redux";
 
 const Tabs = () => {
   const [toggleTab, setToggleTab] = useState("All");
@@ -10,10 +11,12 @@ const Tabs = () => {
   const selectTab = (content) => {
     setToggleTab(content);
   };
-
+  const favEmail = useSelector((store) => store.email.favEmails);
+  const readEmail = useSelector((store) => store.email.readEmails);
+  const unReadEmail = useSelector((store) => store.email.unReadEmails);
   return (
     <div className="flex flex-col">
-      <div className="flex rounded-lg border border-purple-300 p-2 w-[88vw]">
+      <div className="flex rounded-lg border border-purple-300 p-2 max-w-full min-w-[88vw]">
         <button
           type="button"
           className={`p-1 w-[90px] rounded-full   ${
@@ -23,7 +26,7 @@ const Tabs = () => {
           }`}
           onClick={() => selectTab("All")}
         >
-          All
+          All 15
         </button>
         <button
           type="button"
@@ -34,7 +37,7 @@ const Tabs = () => {
           }`}
           onClick={() => selectTab("unread tab")}
         >
-          Unread
+          Unread {unReadEmail.length}
         </button>
         <button
           type="button"
@@ -45,7 +48,7 @@ const Tabs = () => {
           }`}
           onClick={() => selectTab("read tab")}
         >
-          Read
+          Read {readEmail.length}
         </button>
         <button
           type="button"
@@ -56,7 +59,7 @@ const Tabs = () => {
           }`}
           onClick={() => selectTab("favorites tab")}
         >
-          Favorites
+          Favorites {favEmail.length}
         </button>
       </div>
       {
@@ -66,7 +69,6 @@ const Tabs = () => {
           >
             <AllEmailList />
           </div>
-
           <div
             className={
               toggleTab === "unread tab" ? "block min-h-screen" : "hidden"
@@ -74,7 +76,6 @@ const Tabs = () => {
           >
             <UnreadEmails />
           </div>
-
           <div
             className={
               toggleTab === "read tab" ? "block min-h-screen" : "hidden"
@@ -82,7 +83,6 @@ const Tabs = () => {
           >
             <ReadEmails />
           </div>
-
           <div
             className={
               toggleTab === "favorites tab" ? "block min-h-screen" : "hidden"

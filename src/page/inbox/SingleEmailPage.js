@@ -16,7 +16,7 @@ const SingleEmailPage = () => {
 
   const favBtnHandler = (clickedEmailInfo) => {
     dispatch(addToFavEmails(clickedEmailInfo));
-    toast("Added to Favorites");
+    toast("Added to Favorites ❤️");
   };
   const emailText = emailbody?.data?.body;
   return (

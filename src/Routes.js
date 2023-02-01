@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorMsg from "./components/ErrorMsg";
 import App from "./App";
-import StarredPage from "./page/StarredPage";
 import ProfilePage from "./page/ProfilePage";
 import SingleEmailPage from "./page/inbox/SingleEmailPage";
 import Tabs from "./page/inbox/Inbox";
@@ -24,7 +23,6 @@ export const router = createBrowserRouter([
       },
       { path: "/sent", element: <SentPage /> },
       { path: "/sent/:id", element: <SingleSentEmail /> },
-      { path: "/starred", element: <StarredPage /> },
       { path: "/profile", element: <ProfilePage /> },
     ],
   },

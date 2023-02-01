@@ -1,6 +1,6 @@
 import { MdEmail } from "react-icons/md";
 import { auth, provider } from "../firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInAnonymously, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { loginReducer } from "../app/features/userSlice";
 

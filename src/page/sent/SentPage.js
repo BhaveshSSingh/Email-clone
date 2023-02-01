@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import EmailRow from "./EmailRow";
 import Shimmer from "../../components/loading/Shimmer";
+import { useSelector } from "react-redux";
 
 const SentPage = () => {
   const [emails, setEmails] = useState([]);
@@ -20,6 +21,18 @@ const SentPage = () => {
       unSub();
     };
   }, [db]);
+
+  const searchQuery = useSelector((state) => state.email.searchQuery);
+  const searchFilteredData = () => {
+    return emails.filter(
+      (item) =>
+        item.data().subject.toLowerCase().includes(searchQuery) ||
+        item.data().to.toLowerCase().includes(searchQuery) ||
+        item.data().short_description.toLowerCase().includes(searchQuery)
+    );
+  };
+
+  console.log(searchFilteredData());
 
   return (
     <div className="">
@@ -42,7 +55,7 @@ const SentPage = () => {
         {emails.length === 0 ? (
           <div>"No Sent Emails"</div>
         ) : (
-          emails.map((email) => (
+          searchFilteredData().map((email) => (
             <Link key={email.id} to={`/sent/${email.id}`} email={email}>
               <EmailRow email={email.data()} emailId={email.id} />
             </Link>

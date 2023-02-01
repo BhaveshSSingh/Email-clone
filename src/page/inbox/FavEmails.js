@@ -16,6 +16,18 @@ const FavEmails = () => {
     dispatch(saveClickedEmail(email));
   };
   const favEmailList = useSelector((store) => store.email.favEmails);
+  //search
+
+  const searchQuery = useSelector((state) => state.email.searchQuery);
+  const searchFilteredData = () => {
+    return favEmailList.filter(
+      (item) =>
+        item.from.name.toLowerCase().includes(searchQuery) ||
+        item.from.email.toLowerCase().includes(searchQuery) ||
+        item.short_description.toLowerCase().includes(searchQuery) ||
+        item.subject.toLowerCase().includes(searchQuery)
+    );
+  };
 
   return (
     <div>
@@ -23,7 +35,7 @@ const FavEmails = () => {
         {favEmailList.length === 0 ? (
           <h1>No Favorites Emails</h1>
         ) : (
-          favEmailList.map((email) => (
+          searchFilteredData().map((email) => (
             <div onClick={() => emailClickHandler(email)}>
               <Link to={`/${email.id}`} key={email.id}>
                 <EmailTab email={email} />

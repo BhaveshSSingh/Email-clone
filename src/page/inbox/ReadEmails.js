@@ -15,13 +15,27 @@ const ReadEmails = () => {
     dispatch(fetchEmailBody(email.id));
   };
   const readEmails = useSelector((store) => store.email.readEmails);
+
+  //search
+
+  const searchQuery = useSelector((state) => state.email.searchQuery);
+  const searchFilteredData = () => {
+    return readEmails.filter(
+      (item) =>
+        item.from.name.toLowerCase().includes(searchQuery) ||
+        item.from.email.toLowerCase().includes(searchQuery) ||
+        item.short_description.toLowerCase().includes(searchQuery) ||
+        item.subject.toLowerCase().includes(searchQuery)
+    );
+  };
+
   return (
     <div>
       <div to="/email:id">
         {readEmails.length === 0 ? (
           <h1>No Read Emails</h1>
         ) : (
-          readEmails.map((email) => (
+          searchFilteredData().map((email) => (
             <div onClick={() => emailClickHandler(email)}>
               <Link to={`/${email.id}`} key={email.id}>
                 <EmailTab email={email} />

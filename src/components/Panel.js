@@ -41,14 +41,7 @@ const Panel = () => {
               Sent
             </li>
           </Link>
-          <Link to="starred">
-            <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
-              <div className="px-2">
-                <AiFillStar />
-              </div>
-              Starred
-            </li>
-          </Link>
+
           <Link to="profile">
             <li className="flex items-center px-4 py-2 hover:bg-purple-700 hover:text-white cursor-pointer rounded-xl justify-start">
               <div className="px-2">

@@ -21,13 +21,25 @@ const UnreadEmails = () => {
 
   const unReadEmailList = useSelector((store) => store.email.unReadEmails);
 
+  //search
+  const searchQuery = useSelector((state) => state.email.searchQuery);
+  const searchFilteredData = () => {
+    return unReadEmailList.filter(
+      (item) =>
+        item.from.name.toLowerCase().includes(searchQuery) ||
+        item.from.email.toLowerCase().includes(searchQuery) ||
+        item.short_description.toLowerCase().includes(searchQuery) ||
+        item.subject.toLowerCase().includes(searchQuery)
+    );
+  };
+
   return (
     <div>
       <div>
         {unReadEmailList.length === 0 ? (
           <div className="">No More Emails</div>
         ) : (
-          unReadEmailList.map((email) => (
+          searchFilteredData().map((email) => (
             <Link to="/email:id" key={email.id}>
               <div onClick={() => emailClickHandler(email)}>
                 <EmailTab email={email} />
