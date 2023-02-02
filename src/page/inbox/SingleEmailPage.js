@@ -2,7 +2,7 @@ import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavEmails } from "../../app/features/emailSlice";
 import { BiArrowBack } from "react-icons/bi";
-import Shimmerbody from "../../components/loading/Shimmerbody";
+import Shimmerbody from "../../helpers/loading/Shimmerbody";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 

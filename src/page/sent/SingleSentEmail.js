@@ -3,7 +3,7 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Shimmerbody from "../../components/loading/Shimmerbody";
+import Shimmerbody from "../../helpers/loading/Shimmerbody";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useState } from "react";

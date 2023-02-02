@@ -4,7 +4,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import EmailRow from "./EmailRow";
-import Shimmer from "../../components/loading/Shimmer";
+import Shimmer from "../../helpers/loading/Shimmer";
 import { useSelector } from "react-redux";
 
 const SentPage = () => {
