@@ -16,9 +16,9 @@ const FavEmails = () => {
     dispatch(saveClickedEmail(email));
   };
   const favEmailList = useSelector((store) => store.email.favEmails);
-  //search
 
   const searchQuery = useSelector((state) => state.email.searchQuery);
+
   const searchFilteredData = () => {
     return favEmailList.filter(
       (item) =>

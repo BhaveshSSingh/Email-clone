@@ -3,7 +3,6 @@ import { useRef } from "react";
 const Modal = ({ children, showModal, setShowModal }) => {
   const modalRef = useRef();
 
-  // For the cross icons in the modal
   function closeModal(e) {
     if (modalRef.current === e.target) {
       setShowModal(false);

@@ -36,7 +36,6 @@ const EmailRow = ({ email, emailId }) => {
             <span className="pr-7">
               <div>{new Date(date?.seconds * 1000).toUTCString()}</div>
             </span>{" "}
-            {/* <span className="text-purple-500"> ddd</span> */}
           </div>
         </div>
       </div>

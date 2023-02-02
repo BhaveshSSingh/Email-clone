@@ -21,7 +21,6 @@ const UnreadEmails = () => {
 
   const unReadEmailList = useSelector((store) => store.email.unReadEmails);
 
-  //search
   const searchQuery = useSelector((state) => state.email.searchQuery);
   const searchFilteredData = () => {
     return unReadEmailList.filter(

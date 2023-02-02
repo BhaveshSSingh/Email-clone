@@ -16,8 +16,6 @@ const ReadEmails = () => {
   };
   const readEmails = useSelector((store) => store.email.readEmails);
 
-  //search
-
   const searchQuery = useSelector((state) => state.email.searchQuery);
   const searchFilteredData = () => {
     return readEmails.filter(

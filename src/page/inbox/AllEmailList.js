@@ -6,9 +6,9 @@ import {
 import { addToUnReadEmails } from "../../app/features/emailSlice";
 import { addToReadEmails } from "../../app/features/emailSlice";
 import EmailTab from "../../components/EmailTab";
-import Shimmer from "../../components/loading/Shimmer";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Shimmer from "../../helpers/loading/Shimmer";
 
 const AllEmailList = () => {
   const dispatch = useDispatch();
