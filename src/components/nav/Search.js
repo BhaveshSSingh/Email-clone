@@ -9,6 +9,7 @@ const Search = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
+    setQuery(e.target.value);
     dispatch(searchLetter(query));
   };
 
@@ -39,7 +40,7 @@ const Search = () => {
               placeholder="Search"
               required
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={searchHandler}
             />
           </div>
           <button
